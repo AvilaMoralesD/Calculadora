@@ -44,7 +44,7 @@
         android:id="@+id/btnMas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="60dp"
         android:text="@string/plus"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/btnMenos"

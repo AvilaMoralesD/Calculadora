@@ -34,13 +34,13 @@ public class Operacion implements Parcelable, Comparable<Operacion> {
         operar(numero1, tipoOperacion, numero2);
     }
 
-    public Operacion(int idOrden, float numero1, String tipoOperacion, float numero2) {
+    public Operacion(int idOrden, float numero1, String tipoOperacion, float numero2, float resultado) {
         this.numero1 = numero1;
         this.tipoOperacion = tipoOperacion;
         this.numero2 = numero2;
         this.idOrden = idOrden;
+        this.resultado = resultado;
         autoID = idOrden;
-        operar(numero1, tipoOperacion, numero2);
     }
 
     @Ignore
@@ -133,7 +133,7 @@ public class Operacion implements Parcelable, Comparable<Operacion> {
     @Override
     public String toString() {
         DecimalFormat df = new DecimalFormat("#.##");
-        return idOrden + " -> "+ numero1 + " " + tipoOperacion + " " + numero2 + " = " + df.format(resultado);
+        return numero1 + " " + tipoOperacion + " " + numero2 + " = " + df.format(resultado);
     }
 
     @Override

@@ -12,7 +12,7 @@ import com.dami.calculadora.data.model.OperacionDao;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Operacion.class},version = 1, exportSchema = false)
+@Database(entities = {Operacion.class},version = 4, exportSchema = false)
 public abstract class CalculadoraDatabase extends RoomDatabase {
 
     private static volatile CalculadoraDatabase INSTANCE;

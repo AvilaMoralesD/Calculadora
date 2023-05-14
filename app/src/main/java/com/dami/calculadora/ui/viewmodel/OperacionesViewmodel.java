@@ -48,7 +48,7 @@ public class OperacionesViewmodel extends ViewModel {
 
     //Cargar la lista en este fragmento me permite que el indizador sea correcto en el siguiente fragmento.
     public void load() {
-        OperacionRepository.getInstance();
+        OperacionRepository.getInstance().selectAll();
     }
 
     public Operacion getData() {

@@ -2,13 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_ordenarPorId"
-        android:orderInCategory="20"
-        android:title="Ordenar por tipo/id"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_ordenarCronologico"
         android:orderInCategory="30"
         android:title="Ordenar por cronologico"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_lista"
+        />
+    <item
+        android:id="@+id/action_ordenarPorId"
+        android:orderInCategory="20"
+        android:title="Ordenar por tipo/id"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_sort"/>
 </menu>

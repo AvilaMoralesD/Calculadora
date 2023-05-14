@@ -20,6 +20,8 @@ import com.dami.calculadora.databinding.FragmentFirstBinding;
 import com.dami.calculadora.ui.viewmodel.OperacionesViewmodel;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.DecimalFormat;
+
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
@@ -58,7 +60,9 @@ public class FirstFragment extends Fragment {
                     binding.tilSegundo.setError(getString(R.string.no_puedes_dividir_entre_cero));
                     break;
                 case SUCCESS:
-                    binding.tvResultado.setText(viewmodel.getData().toString());
+                    DecimalFormat df = new DecimalFormat("#.##");
+                    df.format(viewmodel.getData().getResultado());
+                    binding.tvResultado.setText(df.format(viewmodel.getData().getResultado()));
                     break;
             }
         });
