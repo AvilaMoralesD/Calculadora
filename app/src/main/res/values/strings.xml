@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" translatable="false">Calculadora</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
+
+    <string name="numero_1">Numero 1</string>
+    <string name="numero_2">Número 2</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="minus" translatable="false">-</string>
+    <string name="divided" translatable="false">/</string>
+    <string name="multiplied" translatable="false">*</string>
+    <string name="result">Resultado</string>
+    <string name="no_data">Sin datos</string>
+    <string name="num_vacio">Num vacio</string>
+    <string name="no_puedes_dividir_entre_cero">No puedes dividir entre cero</string>
+</resources>

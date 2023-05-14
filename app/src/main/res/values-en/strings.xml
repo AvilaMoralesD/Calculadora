@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Opciones</string>
+    <string name="numero_1">First number</string>
+    <string name="numero_2">Second number</string>
+    <string name="result">Result</string>
+    <string name="no_data">No data</string>
+    <string name="num_vacio">Num Empty</string>
+    <string name="no_puedes_dividir_entre_cero">Can0t divide by zero</string>
+</resources>

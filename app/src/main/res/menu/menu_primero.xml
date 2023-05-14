@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_basura"
+        android:orderInCategory="10"
+        android:title="Limpiar"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_basura"/>
+    <item
+        android:id="@+id/action_navegar_siguiente"
+        android:orderInCategory="20"
+        android:title="Siguiente"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_lista"/>
+
+</menu>
