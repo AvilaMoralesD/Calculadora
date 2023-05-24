@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="key_root_tonos">key_root_tonos</string>
+    <string name="title_root_tono">Selecciona un tono</string>
+    <string name="title_root_category_otros">Otras opciones</string>
+    <string name="key_root_switch">key_root_switch</string>
+    <string name="title_root_switch">Switch de prueba</string>
+    <string name="summary_root_account">Opciones de cuenta</string>
+    <string name="title_root_category_account">Cuentas</string>
+    <string name="key_account">account</string>
+    <string name="title_account_email">Introduce tu email</string>
+    <string name="title_account_password">Introduce tu contraseña</string>
+    <string name="key_account_email">key_account_email</string>
+    <string name="key_account_password">key_account_password</string>
+
+
+</resources>

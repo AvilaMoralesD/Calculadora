@@ -32,4 +32,12 @@
         android:id="@+id/baseDialogFragment"
         android:name="com.dami.calculadora.ui.base.BaseDialogFragment"
         android:label="BaseDialogFragment" />
+    <fragment
+        android:id="@+id/accountsFragment"
+        android:name="com.dami.calculadora.ui.preferencias.AccountsFragment"
+        android:label="AccountsFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.dami.calculadora.ui.preferencias.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

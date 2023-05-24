@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Valores que se visualizan-->
+    <string-array name="ringtone_entries">
+        <item>Maluma</item>
+        <item>Rosalia</item>
+    </string-array>
+
+    <string-array name="ringtone_values">
+        <item>MA</item>
+        <item>RO</item>
+    </string-array>
+
+</resources>

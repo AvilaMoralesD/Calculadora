@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/title_root_category_account">
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="@string/key_account_email"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_account_email" />
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="@string/key_account_password"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_account_password" />
+    </PreferenceCategory>
+</PreferenceScreen>
