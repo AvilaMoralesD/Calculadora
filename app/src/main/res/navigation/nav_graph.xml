@@ -24,5 +24,12 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_baseDialogFragment"
+            app:destination="@id/baseDialogFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/baseDialogFragment"
+        android:name="com.dami.calculadora.ui.base.BaseDialogFragment"
+        android:label="BaseDialogFragment" />
 </navigation>

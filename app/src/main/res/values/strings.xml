@@ -17,4 +17,5 @@
     <string name="no_data">Sin datos</string>
     <string name="num_vacio">Num vacio</string>
     <string name="no_puedes_dividir_entre_cero">No puedes dividir entre cero</string>
+    <string name="desea_borrar_el_elemento">¿Desea borrar el elemento %s?</string>
 </resources>

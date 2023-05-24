@@ -29,7 +29,9 @@ public class OperacionAdapter extends RecyclerView.Adapter<OperacionAdapter.View
     }
 
     public interface OnManageListener {
-        void onShowOperacion(Operacion operacion);
+        void onShow(Operacion operacion);
+
+        void onDelete(Operacion operacion);
     }
 
     @NonNull
@@ -41,7 +43,7 @@ public class OperacionAdapter extends RecyclerView.Adapter<OperacionAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        switch (lista.get(position).getTipoOperacion()){
+        switch (lista.get(position).getTipoOperacion()) {
             case "+":
                 holder.itemBinding.tvOper.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.green));
                 break;
@@ -90,7 +92,11 @@ public class OperacionAdapter extends RecyclerView.Adapter<OperacionAdapter.View
         public void bind(Operacion operacion) {
             itemBinding.tvOper.setText(operacion.toString());
             itemBinding.tvID.setText(String.valueOf(operacion.getIdOrden()));
-            itemView.setOnClickListener(view -> listener.onShowOperacion(operacion));
+            itemView.setOnClickListener(view -> listener.onShow(operacion));
+            itemView.setOnLongClickListener(view -> {
+                listener.onDelete(operacion);
+                return true;
+            });
         }
     }
 }

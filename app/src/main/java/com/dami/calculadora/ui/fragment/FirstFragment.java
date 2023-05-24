@@ -1,5 +1,6 @@
 package com.dami.calculadora.ui.fragment;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,14 +16,16 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.dami.calculadora.CalculadoraApplication;
 import com.dami.calculadora.R;
 import com.dami.calculadora.databinding.FragmentFirstBinding;
+import com.dami.calculadora.ui.base.BaseFragment;
 import com.dami.calculadora.ui.viewmodel.OperacionesViewmodel;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.DecimalFormat;
 
-public class FirstFragment extends Fragment {
+public class FirstFragment extends BaseFragment {
 
     private FragmentFirstBinding binding;
     private OperacionesViewmodel viewmodel;
@@ -63,6 +66,8 @@ public class FirstFragment extends Fragment {
                     DecimalFormat df = new DecimalFormat("#.##");
                     df.format(viewmodel.getData().getResultado());
                     binding.tvResultado.setText(df.format(viewmodel.getData().getResultado()));
+                    showNotification(String.valueOf(viewmodel.getData().getResultado()), R.id.FirstFragment, CalculadoraApplication.CHANNEL_ID);
+
                     break;
             }
         });

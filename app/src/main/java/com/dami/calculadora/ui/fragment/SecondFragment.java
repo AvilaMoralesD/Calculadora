@@ -11,15 +11,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.dami.calculadora.R;
 import com.dami.calculadora.data.adapter.OperacionAdapter;
+import com.dami.calculadora.data.model.Operacion;
 import com.dami.calculadora.databinding.FragmentSecondBinding;
+import com.dami.calculadora.ui.base.BaseDialogFragment;
 import com.dami.calculadora.ui.viewmodel.ListaViewmodel;
 
-public class SecondFragment extends Fragment {
+public class SecondFragment extends Fragment implements OperacionAdapter.OnManageListener {
 
     private OperacionAdapter adapter;
     private ListaViewmodel viewmodel;
@@ -37,7 +40,7 @@ public class SecondFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         viewmodel = new ViewModelProvider(this).get(ListaViewmodel.class);
         viewmodel.load();
-        adapter = new OperacionAdapter(operacion -> Toast.makeText(getContext(), operacion.toString(), Toast.LENGTH_SHORT).show());
+        adapter = new OperacionAdapter(this);
         binding.miRecycler.setAdapter(adapter);
         viewmodel.getData().observe(getViewLifecycleOwner(), listaLeads -> adapter.update(listaLeads));
         viewmodel.getResult().observe(getViewLifecycleOwner(), leadsListResult -> {
@@ -81,4 +84,24 @@ public class SecondFragment extends Fragment {
         binding = null;
     }
 
+    @Override
+    public void onShow(Operacion operacion) {
+        Toast.makeText(getContext(), operacion.toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDelete(Operacion operacion) {
+        Bundle bundle = new Bundle();
+        bundle.putString(BaseDialogFragment.TITLE, "Eliminar operacion");
+        bundle.putString(BaseDialogFragment.MESSAGE, String.format(getString(R.string.desea_borrar_el_elemento), operacion.toString()));
+        NavHostFragment.findNavController(this).navigate(R.id.action_SecondFragment_to_baseDialogFragment, bundle);
+    //El cuadro de diálogo devuelve al fragment padre un resultado que no es gestionado con NavHostFragment
+        getActivity().getSupportFragmentManager().setFragmentResultListener(BaseDialogFragment.REQUEST, this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                if(result.getBoolean(BaseDialogFragment.KEY_BUNDLE))
+                    viewmodel.delete(operacion);
+            }
+        });
+    }
 }
