@@ -10,6 +10,6 @@ import com.dami.calculadora.R;
 public class AccountsFragment extends PreferenceFragmentCompat {
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
-setPreferencesFromResource(R.xml.account_preferences, rootKey);
+        setPreferencesFromResource(R.xml.account_preferences, rootKey);
     }
 }

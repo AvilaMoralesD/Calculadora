@@ -4,6 +4,7 @@ import android.app.Application;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +21,7 @@ import com.dami.calculadora.CalculadoraApplication;
 import com.dami.calculadora.R;
 import com.dami.calculadora.databinding.FragmentFirstBinding;
 import com.dami.calculadora.ui.base.BaseFragment;
+import com.dami.calculadora.ui.preferencias.UserPrefsController;
 import com.dami.calculadora.ui.viewmodel.OperacionesViewmodel;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -43,7 +45,7 @@ public class FirstFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.btnMas.setOnClickListener(v -> viewmodel.tryToOperate(binding.tiePrimero.getText().toString(), getString(R.string.plus), binding.tieSegundo.getText().toString()));
-        binding.btnMenos.setOnClickListener(v -> viewmodel.tryToOperate(binding.tiePrimero.getText().toString(),getString(R.string.minus), binding.tieSegundo.getText().toString()));
+        binding.btnMenos.setOnClickListener(v -> viewmodel.tryToOperate(binding.tiePrimero.getText().toString(), getString(R.string.minus), binding.tieSegundo.getText().toString()));
         binding.btnMultiplicar.setOnClickListener(v -> viewmodel.tryToOperate(binding.tiePrimero.getText().toString(), getString(R.string.multiplied), binding.tieSegundo.getText().toString()));
         binding.btnDividir.setOnClickListener(v -> viewmodel.tryToOperate(binding.tiePrimero.getText().toString(), getString(R.string.divided), binding.tieSegundo.getText().toString()));
 
@@ -71,6 +73,15 @@ public class FirstFragment extends BaseFragment {
                     break;
             }
         });
+        //Comprobar si el usuario esta logueado
+        switchOperations(new UserPrefsController(getContext()).isUserLogged());
+    }
+
+    private void switchOperations(boolean b) {
+        binding.btnMas.setEnabled(b);
+        binding.btnMenos.setEnabled(b);
+        binding.btnDividir.setEnabled(b);
+        binding.btnMultiplicar.setEnabled(b);
     }
 
     @Override

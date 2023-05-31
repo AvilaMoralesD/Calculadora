@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="key_root_tonos">key_root_tonos</string>
+    <string name="key_root_tonos" translatable="false">key_root_tonos</string>
     <string name="title_root_tono">Selecciona un tono</string>
     <string name="title_root_category_otros">Otras opciones</string>
     <string name="key_root_switch">key_root_switch</string>

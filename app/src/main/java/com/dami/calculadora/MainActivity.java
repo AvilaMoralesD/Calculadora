@@ -3,6 +3,7 @@ package com.dami.calculadora;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.dami.calculadora.ui.preferencias.UserPrefsController;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,9 +36,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-       appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-       NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-         }
+        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        new UserPrefsController(getApplicationContext()).login("example email");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,13 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Navigation.findNavController(this,R.id.nav_host_fragment_content_main).navigate(R.id.settingsFragment);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemID = item.getItemId();
+        if (itemID == R.id.action_settings) {
+            Navigation.findNavController(this, R.id.nav_host_fragment_content_main).navigate(R.id.settingsFragment);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
